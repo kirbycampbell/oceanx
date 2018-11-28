@@ -11,4 +11,6 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     render json: @drink.to_json(:include => { :ingredients => { :only => [:id, :description] }})
   end
+
+
 end
