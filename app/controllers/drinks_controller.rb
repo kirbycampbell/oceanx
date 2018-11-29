@@ -11,4 +11,13 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     render json: @drink.to_json(:include => { :ingredients => { :only => [:id, :description] }})
   end
+
+  def def new
+    @drink = Drink.new
+  end
+  
+
+  def create
+    @drink = Drink.create(title: title, description: description, steps: steps, source: source)
+  end
 end
