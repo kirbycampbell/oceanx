@@ -12,6 +12,18 @@ class NewDrink extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state.drink);
+
+    axios
+      .post("/user", {
+        title: "Fred",
+        description: "Flintstone"
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
   render() {
     return (
