@@ -1,54 +1,35 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
+//import DrinksContainer from "./DrinkContainer";
 
-class NewDrink extends Component {
-  constructor(props) {
-    super(props);
-  }
-  state = {
-    drink: []
-  };
+const NewDrink = props => {
+  let formFields = {};
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.state.drink);
+  return (
+    <form
+      onSubmit={e => {
+        props.handleFormSubmit(
+          formFields.title.value,
+          formFields.description.value,
+          formFields.steps.value,
+          formFields.source.value
+        );
+        e.preventDefault();
+      }}
+    >
+      <input
+        ref={input => (formFields.title = input)}
+        placeholder="Drink Name"
+      />
+      <input
+        ref={input => (formFields.description = input)}
+        placeholder="Description"
+      />
+      <input ref={input => (formFields.steps = input)} placeholder="Steps" />
+      <input ref={input => (formFields.source = input)} placeholder="Source" />
 
-    axios
-      .post("/user", {
-        title: "Fred",
-        description: "Flintstone"
-      })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Drink Name"
-          value={this.state.drink.title}
-        />
-        <input
-          type="text"
-          placeholder="Description"
-          value={this.state.drink.description}
-        />
-        <input type="text" placeholder="Steps" value={this.state.drink.steps} />
-        <input
-          type="text"
-          placeholder="Source"
-          value={this.state.drink.source}
-        />
-
-        <input type="submit" value="Post" />
-      </form>
-    );
-  }
-}
+      <input type="submit" />
+    </form>
+  );
+};
 
 export default NewDrink;
