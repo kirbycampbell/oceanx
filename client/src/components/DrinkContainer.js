@@ -9,6 +9,7 @@ class DrinksContainer extends Component {
       drinks: []
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleFormSubmit(title, description, steps, source) {
@@ -23,10 +24,15 @@ class DrinksContainer extends Component {
       });
   }
 
-  addNewDrink(drink) {
-    this.setState({
-      drinks: this.state.drinks.concat(drink)
-    });
+  handleDelete(id) {
+    console.log("in delete method");
+    axios
+      .delete("api/drinks/" + id)
+      .then(response => {
+        const drinks = this.state.drinks.filter(drink => drink.id !== id);
+        this.setState({ drinks });
+      })
+      .catch(error => console.log(error));
   }
 
   componentDidMount() {
@@ -43,16 +49,24 @@ class DrinksContainer extends Component {
 
   render() {
     return (
-      <div className="Drinks-container">
+      <div className="container">
         <NewDrink handleFormSubmit={this.handleFormSubmit} />
         {this.state.drinks.map(drink => {
           return (
-            <div className="single-list" key={drink.id}>
-              <h4>{drink.id}</h4>
-              <p>{drink.title}</p>
-              <p>{drink.description}</p>
-              <p>{drink.steps}</p>
-              <p>{drink.source}</p>
+            <div className="card" key={drink.id}>
+              <h2>{drink.title}</h2>
+
+              <div className="card-content">
+                <p>Description: {drink.description}</p>
+                <p>Directions: {drink.steps}</p>
+                <p>
+                  {" "}
+                  <a href={drink.source}>Source Recipe For {drink.title}</a>
+                </p>
+                <button onClick={() => this.handleDelete(drink.id)}>
+                  Delete
+                </button>
+              </div>
             </div>
           );
         })}

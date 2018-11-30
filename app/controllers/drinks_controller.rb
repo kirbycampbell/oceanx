@@ -22,6 +22,16 @@ class DrinksController < ApplicationController
     end
   end
 
+  def update
+    drink = Drink.find(params[:id])
+    drink.update_attributes(drink_params)
+    render json: drink
+  end
+
+  def destroy
+    Drink.destroy(params[:id])
+  end
+
   private
 
   def drink_params  
