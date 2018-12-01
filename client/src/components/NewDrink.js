@@ -45,7 +45,11 @@ const NewDrink = props => {
             placeholder="Source"
           />
         </div>
-        <input type="submit" />
+        <input
+          className="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        />
       </form>
     </div>
   );
