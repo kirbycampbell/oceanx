@@ -24,6 +24,8 @@ class NewDrinkForm extends Component {
               steps: formFields.steps.value,
               sources: formFields.source.value
             };
+            drink.ingredients = formFields.ingredients.value;
+            console.log(drink);
             this.props.createDrink(drink);
           }}
         >
@@ -50,6 +52,12 @@ class NewDrinkForm extends Component {
             <input
               ref={input => (formFields.source = input)}
               placeholder="Source"
+            />
+          </div>
+          <div className="input-field col s6">
+            <input
+              ref={input => (formFields.ingredients = input)}
+              placeholder="Ingredients"
             />
           </div>
           <input className="btn waves-effect waves-light" type="submit" />
