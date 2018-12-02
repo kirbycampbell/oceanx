@@ -19,7 +19,7 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/bar">
+              <NavLink className="waves-effect waves-light btn" to="/barlist">
                 Bar List
               </NavLink>
             </li>

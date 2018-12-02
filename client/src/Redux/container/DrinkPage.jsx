@@ -26,8 +26,19 @@ class DrinkPage extends Component {
               <h2>{drink.title}</h2>
 
               <div className="card-content">
-                <p>Description: {drink.description}</p>
-                <p>Directions: {drink.steps}</p>
+                <p>
+                  <strong>Description:</strong> {drink.description}
+                </p>
+                <p>
+                  <strong>Ingredients: </strong>
+
+                  {drink.ingredients.map(i => {
+                    return <span key={i.id}> {i.description} </span>;
+                  })}
+                </p>
+                <p>
+                  <strong>Directions:</strong> {drink.steps}
+                </p>
                 <p>
                   {" "}
                   <a href={drink.source}>Source Recipe For {drink.title}</a>
