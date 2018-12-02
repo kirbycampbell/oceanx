@@ -31,10 +31,6 @@ class DrinkPage extends Component {
                 </p>
                 <p>
                   <strong>Ingredients: </strong>
-
-                  {drink.ingredients.map(i => {
-                    return <span key={i.id}> {i.description} </span>;
-                  })}
                 </p>
                 <p>
                   <strong>Directions:</strong> {drink.steps}

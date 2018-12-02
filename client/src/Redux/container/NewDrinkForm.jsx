@@ -23,6 +23,7 @@ class NewDrinkForm extends Component {
               description: formFields.description.value,
               steps: formFields.steps.value,
               sources: formFields.source.value
+              //ingredients: formFields.ingredients.value
             };
             this.props.createDrink(drink);
           }}
@@ -49,6 +50,12 @@ class NewDrinkForm extends Component {
           <div className="input-field col s6">
             <input
               ref={input => (formFields.source = input)}
+              placeholder="Source"
+            />
+          </div>
+          <div className="input-field col s6">
+            <input
+              ref={input => (formFields.ingredients = input)}
               placeholder="Source"
             />
           </div>

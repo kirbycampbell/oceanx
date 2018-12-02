@@ -15,6 +15,7 @@ class DrinksController < ApplicationController
 
   def create
     @drink = Drink.new(drink_params)
+    #@drink.ingredients.create(:ingredients)
     if @drink.save
       render json: @drink.to_json
     else 
@@ -36,6 +37,10 @@ class DrinksController < ApplicationController
 
   def drink_params  
     params.require(:drink).permit(:id, :title, :description, :steps, :source)
+  end
+
+  def ing_params
+    params.require(:ingredients).permit(:ingredients)
   end
 
 end
