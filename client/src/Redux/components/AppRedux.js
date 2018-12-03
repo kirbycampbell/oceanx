@@ -6,11 +6,14 @@ import DrinkPage from "../container/DrinkPage";
 import NavBar from "./NavBar";
 import BarList from "./BarList";
 
+import { Home } from "./home";
+
 const App = props => {
   return (
     <Router>
       <React.Fragment>
         <Route path="/" component={NavBar} />
+        <Route path="/home" component={Home} />
         <Route path="/mainpage" component={DrinkPage} />
         <Route path="/barlist" component={BarList} />
       </React.Fragment>
