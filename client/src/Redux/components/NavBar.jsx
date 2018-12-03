@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../../../node_modules/materialize-css/dist/css/materialize.css";
-import { Home } from "./home";
 
 const NavBar = () => {
   return (

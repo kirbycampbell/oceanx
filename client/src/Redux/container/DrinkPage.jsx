@@ -30,9 +30,6 @@ class DrinkPage extends Component {
                   <strong>Description:</strong> {drink.description}
                 </p>
                 <p>
-                  <strong>Ingredients: </strong>
-                </p>
-                <p>
                   <strong>Directions:</strong> {drink.steps}
                 </p>
                 <p>
