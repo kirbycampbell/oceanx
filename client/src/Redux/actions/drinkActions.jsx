@@ -76,7 +76,6 @@ export const deleteDrink = drinkId => {
 };
 
 const resetDrinkForm = () => {
-  console.log("resetting form");
   return {
     type: types.RESET_FORM
   };
