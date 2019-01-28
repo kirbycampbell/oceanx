@@ -9,7 +9,7 @@ const NavBar = () => {
         <div className="nav-wrapper">
           <ul id="nav-mobile" className="left hide-on-med-and-down">
             <li>
-              <NavLink className="waves-effect waves-light btn" to="/home">
+              <NavLink className="waves-effect waves-light btn" to="/">
                 Home
               </NavLink>
             </li>

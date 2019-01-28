@@ -13,7 +13,7 @@ const App = props => {
     <Router>
       <React.Fragment>
         <Route path="/" component={NavBar} />
-        <Route path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/mainpage" component={DrinkPage} />
         <Route path="/barlist" component={BarList} />
       </React.Fragment>

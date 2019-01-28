@@ -9,7 +9,9 @@ export const googleSearch = query => {
       .then(response => response.json())
       .then(bar => {
         dispatch(makeSearch(bar.results));
+        console.log(bar);
       })
+
       .catch(error => console.log(error));
   };
 };
