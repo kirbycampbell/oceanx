@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_11_28_041429) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "drinks", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_041429) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.integer "drink_id"
+    t.bigint "drink_id"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,4 +38,5 @@ ActiveRecord::Schema.define(version: 2018_11_28_041429) do
     t.integer "age"
   end
 
+  add_foreign_key "ingredients", "drinks"
 end
